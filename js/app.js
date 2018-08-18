@@ -1,22 +1,21 @@
 // Instantiate Github object
-let github = new Github;
+let github = new GitHub;
 // Instantiat UI
 let ui = new UI;
 
-// Search Input
+// Search form input
 const SEARCHUSER = document.querySelector("#search-user");
 
-// Search input event listener
+// Search form input event listener
 SEARCHUSER.addEventListener('keyup', get_user_input, false);
 
 function get_user_input(event){
   // Get input text
-  let userText = event.target.value;
+  let userName = event.target.value;
   
-  if(userText !== ""){
-    console.log(userText);
-    // Make http call
-    github.get_user(userText)
+  if(userName !== ""){
+    // Make http call and pass in the username to search for
+    github.get_user(userName)
       .then(data => {
         console.log(data);
         // Access the message from the returned data from the user profile

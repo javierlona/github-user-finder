@@ -19,7 +19,7 @@ class UI {
             <hr>
             <ul class="list-group">
               <li class="list-group-item">Bio: ${user.bio}</li>
-              <li class="list-group-item">Website: ${user.blog}</li>
+              <li class="list-group-item">Website: <a href="${user.blog}" target="_blank">${user.blog}</a></li>
               <li class="list-group-item">Location: ${user.location}</li>
               <li class="list-group-item">Member Since: ${user.created_at}</li>
             </ul>
