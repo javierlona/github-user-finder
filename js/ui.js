@@ -32,11 +32,31 @@ class UI {
   }
 
   show_alert_messages() {
-    let alertDiv = document.createElement("div");
-    alertDiv.classList.add("alert", "alert-danger");
-    alertDiv.append("No user found.");
-    const SEARCH = document.querySelector("expr");
+    // Clear any existing alerts
+    this.clear_alert_message();
 
+    // Create the div
+    let alertDiv = document.createElement("div");
+    // Add classes
+    alertDiv.classList.add("alert", "alert-danger");
+    // Add the text
+    alertDiv.append("No user found.");
+    // Identify the parent
+    const SEARCH_CONTAINER = document.querySelector(".search-container");
+    // Insert the alert div into the DOM
+    SEARCH_CONTAINER.insertBefore(alertDiv, SEARCH_CONTAINER.firstElementChild);
+
+    // Timeout after 2 sec
+    setTimeout(this.clear_alert_message, 2000);
+  }
+
+  clear_alert_message() {
+    const CURRENT_ALERT = document.querySelector(".alert");
+    if(CURRENT_ALERT) {
+      CURRENT_ALERT.remove();
+    } else {
+      // do nothing
+    }
   }
 
   clear_profile() {
