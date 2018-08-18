@@ -23,6 +23,7 @@ function get_user_input(event){
         if(data.profile.message === "Not Found") {
           // Show alert
           console.log("No user found");
+          ui.show_alert_messages();
         } else {
           // Show profile and the profile information
           ui.show_profile(data.profile);
@@ -30,5 +31,6 @@ function get_user_input(event){
       })
   } else {
     // Clear profile
+    ui.clear_profile();
   }
 }
