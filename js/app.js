@@ -27,6 +27,8 @@ function get_user_input(event){
         } else {
           // Show profile and the profile information
           ui.show_profile(data.profile);
+          // Show the user's repo information
+          ui.show_repos(data.repos);
         }
       })
   } else {
