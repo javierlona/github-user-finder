@@ -1,5 +1,7 @@
-// Instantiate GitHub object
+// Instantiate Github object
 let github = new Github;
+// Instantiat UI
+let ui = new UI;
 
 // Search Input
 const SEARCHUSER = document.querySelector("#search-user");
@@ -17,12 +19,13 @@ function get_user_input(event){
     github.get_user(userText)
       .then(data => {
         console.log(data);
-        // Access the message from the returned data
+        // Access the message from the returned data from the user profile
         if(data.profile.message === "Not Found") {
           // Show alert
           console.log("No user found");
         } else {
-          // Show profile
+          // Show profile and the profile information
+          ui.show_profile(data.profile);
         }
       })
   } else {
