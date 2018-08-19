@@ -1,11 +1,16 @@
 class UI {
   constructor() {
-    // The area where our GitHub user data will be placed
-    this.profile = document.querySelector("#profile");
+    /*
+    * The area where our GitHub user data will be placed
+    * "this.profileSection" refers to the <div id="profile"></div> in the DOM
+    * 
+    */
+    this.profileSection = document.querySelector("#profile");
   }
 
   show_profile(user) {
-    this.profile.innerHTML = `
+    // Contruct the user's profile
+    this.profileSection.innerHTML = `
       <div class="">
         <div class="row">
           <div class="col-md-3">
@@ -19,10 +24,10 @@ class UI {
             <span class="badge badge-info">Following: ${user.following}</span>
             <hr>
             <ul class="list-group">
-              <li class="list-group-item">Bio: ${user.bio}</li>
-              <li class="list-group-item">Website: <a href="${user.blog}" target="_blank">${user.blog}</a></li>
-              <li class="list-group-item">Location: ${user.location}</li>
-              <li class="list-group-item">Member Since: ${user.created_at}</li>
+              <li class="list-group-item"><b>Bio</b>: ${user.bio}</li>
+              <li class="list-group-item"><b>Website</b>: <a href="${user.blog}" target="_blank">${user.blog}</a></li>
+              <li class="list-group-item"><b>Location</b>: ${user.location}</li>
+              <li class="list-group-item"><b>Member Since</b>: ${user.created_at}</li>
             </ul>
           </div>
         </div>
@@ -34,7 +39,7 @@ class UI {
 
   show_repos(repos) {
     let output = "";
-
+    // Construct the output for each repo
     repos.forEach(function(repo){
       output += `
         <div class="card card-body mb-2">
@@ -70,13 +75,15 @@ class UI {
     // Insert the alert div into the DOM
     SEARCH_CONTAINER.insertBefore(alertDiv, SEARCH_CONTAINER.firstElementChild);
 
-    // Timeout after 2 sec
+    // Alert lingers for 2 seconds
     setTimeout(this.clear_alert_message, 2000);
   }
 
   clear_alert_message() {
+    // Identify the alert
     const CURRENT_ALERT = document.querySelector(".alert");
     if(CURRENT_ALERT) {
+      // Remove it if it exists
       CURRENT_ALERT.remove();
     } else {
       // do nothing
@@ -84,6 +91,13 @@ class UI {
   }
 
   clear_profile() {
-    this.profile.innerHTML = "";
+    /* 
+    * Clear out the profile area
+    * The line '[this.profileSection.innerHTML = "";] is slower than what is used below
+    * source: https://coderwall.com/p/nygghw/don-t-use-innerhtml-to-empty-dom-elements
+    */
+    while (this.profileSection.firstChild) {
+      this.profileSection.removeChild(this.profileSection.firstChild);
+    }
   }
 }
