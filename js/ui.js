@@ -1,5 +1,6 @@
 class UI {
   constructor() {
+    // The area where our GitHub user data will be placed
     this.profile = document.querySelector("#profile");
   }
 
@@ -46,7 +47,6 @@ class UI {
               <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
               <span class="badge badge-success">Forks: ${repo.forks_count}</span>
             </div>
-          
           </div>
         </div>
       `;

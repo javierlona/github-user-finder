@@ -11,13 +11,13 @@ class GitHub {
     let profileResponse = await fetch(`https://api.github.com/users/${user}?client_id=${this.client_id}&client_secret=${this.client_secret}`);
     // Get the data dump repo info from the user we looked up
     let repoResponse = await fetch(`https://api.github.com/users/${user}/repos?per_page=${this.repo_limit}&sort=${this.repo_sort}&client_id=${this.client_id}&client_secret=${this.client_secret}`);
-    // Convert the profile data to Json 
-    let profileData = await profileResponse.json();
+    // Convert the profile data to Json
+    let profileUserData = await profileResponse.json();
     // Convert the user's repo data to Json
     let profileRepos = await repoResponse.json();
-
+    // Send back the information as two separate Jsons
     return {
-      profile: profileData,
+      profile: profileUserData,
       repos: profileRepos
     }
   }
