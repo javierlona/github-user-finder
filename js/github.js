@@ -1,6 +1,6 @@
 class GitHub {
   constructor() {
-    // "these" new objects will all carry the following information
+    // New objects will all carry the following information
     this.client_id = "1afcf0a689897066afba";
     this.client_secret = "dfbc8bc5bb8c1877bf1bd93b80a299abb8a0fa4d";
     this.repo_limit = 5;
