@@ -1,7 +1,7 @@
 # GitHub User Finder
 ![Demo Image](imgs/github-user-finder-demo.jpg)
 
-[Click for a Live Demo](http://onegreatapp.com/github-user-finder/)
+[Click for a Live Demo](http://apps.javierlona.com/github-user-finder/)
 
 ## Description
 Enter a GitHub username to fetch their user's profile and new repositories.
